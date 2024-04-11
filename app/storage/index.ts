@@ -1,11 +1,11 @@
 import { STORAGE_KEY } from '~/constants';
+import { Node, Storage } from '~/types';
 
-const dataRaw = localStorage.getItem(STORAGE_KEY);
+const storage: Storage = {
+    get(): Node[] {
+        const dataRaw = localStorage.getItem(STORAGE_KEY);
+        const data = dataRaw ? JSON.parse(dataRaw) : [];
 
-const data = dataRaw ? JSON.parse(dataRaw) : [];
-
-const storage = {
-    get() {
         return data;
     },
     set(data: []) {

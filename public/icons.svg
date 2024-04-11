@@ -17,5 +17,11 @@
             <path d="m9 14h6"/>
         </g>
     </symbol>
+    <symbol id="plus" viewBox="0 0 24 24">
+        <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="m12 19v-14"/>
+            <path d="m5 12h14"/>
+        </g>
+    </symbol>
 </defs>
 </svg>
