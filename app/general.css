@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.window {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto 0;
+    min-height: 200px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 16px 0px rgba(66, 68, 90, 0.3);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    overflow: hidden;
+}
