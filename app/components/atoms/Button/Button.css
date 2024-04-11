@@ -1,0 +1,11 @@
+.toolbar-button {
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}

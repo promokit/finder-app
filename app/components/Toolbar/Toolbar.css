@@ -1,4 +1,7 @@
 .toolbar {
-    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3px;
+    padding: 1rem;
     background-color: #f1f1f1;
 }
