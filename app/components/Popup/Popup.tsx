@@ -1,9 +1,10 @@
 import { FormEvent, useState } from 'react';
 import { NodeType } from '~/types/enums';
-import { createNode } from '~/utils/crud';
+import { createNode, updateNode } from '~/utils/crud';
 import type { PopupState } from '../Toolbar/Toolbar.types';
 import { Button } from '../atoms';
 
+import { nodeSignal } from '~/signals/node-signal';
 import './Popup.css';
 
 type Props = {
@@ -19,14 +20,17 @@ export const Popup = ({ onClose, type }: Props) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNodeName(event.target.value);
     };
-
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        createNode({
-            type,
-            name: nodeName,
-        });
+        if (nodeSignal.value === 0) {
+            createNode({
+                type,
+                name: nodeName,
+            });
+        } else {
+            updateNode({ id: nodeSignal.value, name: nodeName });
+        }
 
         hidePopup();
     };

@@ -3,7 +3,7 @@ import { Icon } from '..';
 import './Button.css';
 
 type Props = {
-    action: any;
+    action: () => void;
     title: string;
     icon: string;
     extraClass?: string;

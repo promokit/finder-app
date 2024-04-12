@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { NodeType } from '~/types/enums';
 import { Popup } from '..';
-import { Button, ButtonDelete } from '../atoms';
+import { Button, ButtonDelete, ButtonRename } from '../atoms';
 import { PopupState } from './Toolbar.types';
 
 import './Toolbar.css';
@@ -17,6 +17,8 @@ export const Toolbar = () => {
         <aside className="toolbar">
             <div className="title">Root</div>
             <div className="actions">
+                <ButtonDelete />
+                <ButtonRename />
                 <Button
                     title="Create File"
                     icon="addfile"
@@ -27,7 +29,6 @@ export const Toolbar = () => {
                     icon="addfolder"
                     action={() => setPopupState({ show: true, type: NodeType.Dir })}
                 />
-                <ButtonDelete />
             </div>
             {popupState.show &&
                 popupState.type &&

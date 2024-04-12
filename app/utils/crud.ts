@@ -2,9 +2,10 @@ import { storageSignal } from '~/signals/storage-signal';
 
 import { Node } from '~/types';
 
-type Details = Pick<Node, 'type' | 'name'>;
+type CreateDetails = Pick<Node, 'type' | 'name'>;
+type UpdateDetails = Pick<Node, 'id' | 'name'>;
 
-export const createNode = ({ type, name }: Details) => {
+export const createNode = ({ type, name }: CreateDetails) => {
     const nodes = storageSignal.value;
 
     const id = nodes.length === 0 ? 1 : Math.max(...nodes.map((node) => node.id)) + 1;
@@ -22,15 +23,25 @@ export const createNode = ({ type, name }: Details) => {
 };
 
 export const readNodes = (id: number | null = null): Node[] => {
-    const nodes = storageSignal.value;
-    if (id) {
-        return nodes.filter((node) => node.id === id);
+    if (id !== null) {
+        return storageSignal.value.filter((node) => node.id === id);
     }
-    return nodes;
+    return storageSignal.value;
 };
 
-export const updateNode = () => {};
+export const updateNode = ({ id, name }: UpdateDetails): boolean => {
+    const node = storageSignal.value.find((node) => node.id === id);
+    const filteredNodes = storageSignal.value.filter((node) => node.id !== id);
 
-export const deleteNode = (id: number) => {
+    if (!node) {
+        return false;
+    }
+
+    storageSignal.value = [...filteredNodes, { ...node, name }];
+
+    return true;
+};
+
+export const deleteNode = (id: Pick<Node, 'id'>) => {
     storageSignal.value = storageSignal.value.filter((node) => node.id !== id);
 };
