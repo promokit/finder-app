@@ -3,7 +3,8 @@ import { createPortal } from 'react-dom';
 import { NodeType } from '~/types/enums';
 import { Popup } from '..';
 import { ButtonDelete, ButtonRegular, ButtonRename } from '../atoms';
-import { PopupState } from './Toolbar.types';
+import { ButtonShowFolders } from '../atoms/Buttons/ButtonShowFolders/ButtonShowFolders';
+import type { PopupState } from './Toolbar.types';
 
 import './Toolbar.css';
 
@@ -19,6 +20,7 @@ export const Toolbar = () => {
             <div className="actions">
                 <ButtonDelete />
                 <ButtonRename />
+                <ButtonShowFolders />
                 <ButtonRegular
                     title="Create File"
                     icon="addfile"

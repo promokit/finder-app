@@ -1,5 +1,5 @@
 import store from 'store2';
-import { STORAGE_KEY } from '~/constants';
+import { STORAGE_KEY } from '~/constants/constants';
 import { Node, Storage } from '~/types';
 
 const storage: Storage = {

@@ -1,4 +1,4 @@
-import { nodeSignal } from '~/signals/node-signal';
+import { nodeSignal } from '~/signals/node';
 import { NodeType } from '~/types/enums';
 import { getDate } from '~/utils/date';
 import { Icon } from '..';
@@ -18,7 +18,7 @@ export const Node = ({ name, type, date, id }: Props) => {
     return (
         <tr onClick={handleClick} className={nodeSignal.value === id ? 'selected' : 'regular'}>
             <td>
-                <Icon name={type === NodeType.Dir ? 'addfolder' : 'file'} />
+                <Icon name={type === NodeType.Dir ? 'folder' : 'file'} />
             </td>
             <td>{name}</td>
             <td>{type === NodeType.Dir ? 'Folder' : 'File'}</td>

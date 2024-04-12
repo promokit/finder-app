@@ -1,4 +1,4 @@
-import { storageSignal } from '~/signals/storage-signal';
+import { storageSignal } from '~/signals/storage';
 
 import { Node } from '~/types';
 

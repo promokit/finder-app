@@ -12,3 +12,7 @@ export type Node = {
     date: number;
     children: Node[];
 };
+
+export type ContentView = {
+    foldersOnly: boolean;
+};

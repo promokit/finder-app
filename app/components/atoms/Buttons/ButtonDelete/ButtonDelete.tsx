@@ -1,4 +1,4 @@
-import { nodeSignal } from '~/signals/node-signal';
+import { nodeSignal } from '~/signals/node';
 import { deleteNode } from '~/utils/crud';
 import { ButtonRegular } from '..';
 

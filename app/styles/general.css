@@ -10,6 +10,11 @@ html {
     font-style: normal;
 }
 
+body {
+    background-color: Canvas;
+    color-scheme: light dark;
+}
+
 *,
 *::before,
 *::after {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Popup } from '~/components';
 import { PopupState } from '~/components/Toolbar/Toolbar.types';
-import { nodeSignal } from '~/signals/node-signal';
+import { nodeSignal } from '~/signals/node';
 import { NodeType } from '~/types/enums';
 import { readNodes } from '~/utils/crud';
 import { ButtonRegular } from '..';

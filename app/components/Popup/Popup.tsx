@@ -4,7 +4,7 @@ import { createNode, updateNode } from '~/utils/crud';
 import type { PopupState } from '../Toolbar/Toolbar.types';
 import { ButtonRegular } from '../atoms';
 
-import { nodeSignal } from '~/signals/node-signal';
+import { nodeSignal } from '~/signals/node';
 import './Popup.css';
 
 type Props = {
