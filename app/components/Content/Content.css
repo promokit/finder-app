@@ -29,10 +29,18 @@
         height: 200px;
         tr {
             &:nth-child(even) {
-                background: #fafafa;
+                background: #fcfcfc;
+            }
+            &:nth-child(odd) {
+                background: #f1f1f1;
+            }
+            &:hover,
+            &.selected {
+                background: #0692b5;
+                color: #fff;
             }
             &:hover {
-                background: #f0f0f0;
+                filter: brightness(0.86);
             }
         }
     }
