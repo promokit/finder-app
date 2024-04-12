@@ -1,6 +1,4 @@
-export * from './Button/Button';
-export * from './ButtonDelete/ButtonDelete';
-export * from './ButtonRename/ButtonRename';
+export * from './Buttons';
 export * from './ContentHeading/ContentHeading';
 export * from './Icon/Icon';
 export * from './Node/Node';

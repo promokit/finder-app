@@ -1,6 +1,6 @@
-import { Icon } from '..';
+import { Icon } from '../..';
 
-import './Button.css';
+import './ButtonRegular.css';
 
 type Props = {
     action: () => void;
@@ -9,7 +9,7 @@ type Props = {
     extraClass?: string;
 };
 
-export const Button = ({ title, icon, action, extraClass = '' }: Props) => {
+export const ButtonRegular = ({ title, icon, action, extraClass = '' }: Props) => {
     return (
         <button className={`toolbar-button ${extraClass}`} onClick={action} title={title}>
             <Icon name={icon} />

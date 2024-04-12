@@ -5,7 +5,7 @@ import { PopupState } from '~/components/Toolbar/Toolbar.types';
 import { nodeSignal } from '~/signals/node-signal';
 import { NodeType } from '~/types/enums';
 import { readNodes } from '~/utils/crud';
-import { Button } from '..';
+import { ButtonRegular } from '..';
 
 export const ButtonRename = () => {
     const [nodeType, setNodeType] = useState<NodeType>(NodeType.File);
@@ -24,7 +24,7 @@ export const ButtonRename = () => {
     return (
         nodeSignal.value !== 0 && (
             <>
-                <Button
+                <ButtonRegular
                     title="Rename"
                     icon="edit"
                     action={() =>

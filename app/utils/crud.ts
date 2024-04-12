@@ -42,6 +42,6 @@ export const updateNode = ({ id, name }: UpdateDetails): boolean => {
     return true;
 };
 
-export const deleteNode = (id: Pick<Node, 'id'>) => {
+export const deleteNode = (id: number) => {
     storageSignal.value = storageSignal.value.filter((node) => node.id !== id);
 };

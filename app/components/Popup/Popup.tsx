@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { NodeType } from '~/types/enums';
 import { createNode, updateNode } from '~/utils/crud';
 import type { PopupState } from '../Toolbar/Toolbar.types';
-import { Button } from '../atoms';
+import { ButtonRegular } from '../atoms';
 
 import { nodeSignal } from '~/signals/node-signal';
 import './Popup.css';
@@ -39,7 +39,7 @@ export const Popup = ({ onClose, type }: Props) => {
         <div className="popup window-view">
             <header>
                 <div>{`Create ${type === NodeType.Dir ? 'Folder' : 'File'}`}</div>
-                <Button title="Close Popup" icon="plus" action={hidePopup} />
+                <ButtonRegular title="Close Popup" icon="plus" action={hidePopup} />
             </header>
             <div className="popup-body">
                 <form onSubmit={handleSubmit}>
