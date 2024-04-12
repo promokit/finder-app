@@ -1,15 +1,13 @@
+import store from 'store2';
 import { STORAGE_KEY } from '~/constants';
 import { Node, Storage } from '~/types';
 
 const storage: Storage = {
     get(): Node[] {
-        const dataRaw = localStorage.getItem(STORAGE_KEY);
-        const data = dataRaw ? JSON.parse(dataRaw) : [];
-
-        return data;
+        return store(STORAGE_KEY);
     },
     set(data: []) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        store(STORAGE_KEY, data);
     },
 };
 

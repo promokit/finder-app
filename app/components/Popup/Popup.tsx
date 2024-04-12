@@ -1,11 +1,9 @@
 import { FormEvent, useState } from 'react';
 import { NodeType } from '~/types/enums';
-import { PopupState } from '../Toolbar/Toolbar.types';
+import { createNode } from '~/utils/crud';
+import type { PopupState } from '../Toolbar/Toolbar.types';
 import { Button } from '../atoms';
 
-// import { createNode } from '~/utils/crud';
-// import { createNode } from '~/utils/crud';
-import { createNode } from '~/utils/crud';
 import './Popup.css';
 
 type Props = {

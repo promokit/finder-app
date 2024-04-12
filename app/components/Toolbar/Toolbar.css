@@ -1,7 +1,16 @@
 .toolbar {
     display: flex;
-    justify-content: flex-end;
     gap: 3px;
     padding: 1rem;
     background-color: #f1f1f1;
+    align-items: center;
+    .title {
+        font-size: 1.5rem;
+    }
+    .actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-grow: 1;
+    }
 }

@@ -1,3 +1,65 @@
 .content {
-    padding: 15px;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 35px;
+        }
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 55%;
+        }
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 15%;
+        }
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 25%;
+        }
+    }
+    thead {
+        background: #eee;
+    }
+    tbody {
+        overflow: auto;
+        width: 100%;
+        height: 200px;
+        tr {
+            &:nth-child(even) {
+                background: #fafafa;
+            }
+            &:hover {
+                background: #f0f0f0;
+            }
+        }
+    }
+    td,
+    th {
+        padding: 5px 10px;
+        box-sizing: border-box;
+        &:not(:last-child) {
+            border-right: 1px solid #eee;
+        }
+        &:first-child {
+            text-align: right;
+        }
+        .svgic {
+            width: 16px;
+            margin-left: auto;
+        }
+    }
+    tbody {
+        display: block;
+        height: 200px;
+        overflow: auto;
+    }
+    thead,
+    tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
 }

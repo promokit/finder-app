@@ -1,27 +1,27 @@
-import storage from '~/storage';
+import { storageSignal } from '~/signals/storage-signal';
 
 import { Node } from '~/types';
 
-export const createNode = ({ type, name }: Pick<Node, 'type' | 'name'>) => {
-    const nodes = storage.get();
+type Details = Pick<Node, 'type' | 'name'>;
+
+export const createNode = ({ type, name }: Details) => {
+    const nodes = storageSignal.value;
     const id = nodes.length === 0 ? 1 : Math.max(...nodes.map((node) => node.id)) + 1;
     const date = new Date().getTime();
 
-    const newNode: Node = {
+    nodes.push({
         id,
         type,
         name,
         date,
         children: [],
-    };
+    });
 
-    nodes.push(newNode);
-
-    storage.set(nodes);
+    storageSignal.value = [...nodes];
 };
 
 export const readNodes = (id: number | null = null): Node[] => {
-    const nodes = storage.get();
+    const nodes = storageSignal.value;
     if (id) {
         return nodes.filter((node) => node.id === id);
     }

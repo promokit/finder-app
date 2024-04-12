@@ -1,4 +1,5 @@
 .svgic {
     width: 24px;
     aspect-ratio: 1;
+    display: block;
 }

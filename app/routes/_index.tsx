@@ -11,11 +11,13 @@ export const meta: MetaFunction = () => {
 export default function Index() {
     return (
         <div className="window window-view">
-            <Sidebar />
-            <main>
-                <Toolbar />
-                <Content />
-            </main>
+            <div className="window-wrapper">
+                <Sidebar />
+                <main>
+                    <Toolbar />
+                    <Content />
+                </main>
+            </div>
         </div>
     );
 }

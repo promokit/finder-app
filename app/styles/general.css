@@ -4,8 +4,13 @@
 
 html {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
+*,
 *::before,
 *::after {
     box-sizing: inherit;
@@ -13,19 +18,31 @@ html {
 
 .window {
     margin: 30px auto 0;
-    min-height: 200px;
+    max-width: 1200px;
+    resize: horizontal;
+}
+
+.window-wrapper {
     display: grid;
     grid-template-columns: 200px 1fr;
-    max-width: 800px;
+    height: 100%;
 }
 
 .window-view {
+    container-name: window;
+    container-type: inline-size;
     width: 90%;
     border: 1px solid #ccc;
     box-shadow: 5px 5px 16px 0px rgba(66, 68, 90, 0.3);
     border-radius: 8px;
     background: #fff;
     overflow: hidden;
+}
+
+@container window (max-width: 700px) {
+    .window-wrapper {
+        grid-template-columns: 0px 1fr;
+    }
 }
 
 body:has(.popup):after {
