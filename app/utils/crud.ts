@@ -6,6 +6,7 @@ type Details = Pick<Node, 'type' | 'name'>;
 
 export const createNode = ({ type, name }: Details) => {
     const nodes = storageSignal.value;
+
     const id = nodes.length === 0 ? 1 : Math.max(...nodes.map((node) => node.id)) + 1;
     const date = new Date().getTime();
 
@@ -29,4 +30,7 @@ export const readNodes = (id: number | null = null): Node[] => {
 };
 
 export const updateNode = () => {};
-export const deleteNode = () => {};
+
+export const deleteNode = (id: number) => {
+    storageSignal.value = storageSignal.value.filter((node) => node.id !== id);
+};
