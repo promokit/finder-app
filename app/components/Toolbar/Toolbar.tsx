@@ -1,9 +1,8 @@
-import { createPortal } from 'react-dom';
-import { Button } from '../atoms/Button/Button';
-
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { NodeType } from '~/types/enums';
 import { Popup } from '..';
+import { Button } from '../atoms';
 import { PopupState } from './Toolbar.types';
 
 import './Toolbar.css';
@@ -26,6 +25,12 @@ export const Toolbar = () => {
                 <Button
                     title="Create Folder"
                     icon="addfolder"
+                    action={() => setPopupState({ show: true, type: NodeType.Dir })}
+                />
+                <Button
+                    title="Delete"
+                    icon="plus"
+                    extraClass="delete"
                     action={() => setPopupState({ show: true, type: NodeType.Dir })}
                 />
             </div>
