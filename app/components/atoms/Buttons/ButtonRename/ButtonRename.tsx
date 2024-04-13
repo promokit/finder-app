@@ -16,7 +16,7 @@ export const ButtonRename = () => {
     };
 
     return (
-        nodeSignal.value !== 0 && (
+        nodeSignal.value !== '' && (
             <>
                 <ButtonRegular
                     title="Rename"

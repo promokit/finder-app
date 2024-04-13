@@ -1,14 +1,5 @@
 import '@preact/signals-react/auto';
-import { LinksFunction } from '@remix-run/node';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
-
-export const links: LinksFunction = () => {
-    return [
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap' },
-    ];
-};
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (

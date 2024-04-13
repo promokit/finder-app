@@ -25,6 +25,7 @@
         width: 100%;
         height: 200px;
         tr {
+            transition: 0.1s all linear;
             &:nth-child(even) {
                 background: #fcfcfc;
             }

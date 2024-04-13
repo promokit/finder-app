@@ -1,28 +1,30 @@
-import { storageSignal } from '~/signals/storage';
-
-import { Node } from '~/types';
+import { locationSignal, storageSignal } from '~/signals';
+import type { Node } from '~/types';
 
 type CreateDetails = Pick<Node, 'type' | 'name'>;
 type UpdateDetails = Pick<Node, 'id' | 'name'>;
 
 export const createNode = ({ type, name }: CreateDetails) => {
     const nodes = storageSignal.value || [];
+    const parentId = locationSignal.value;
 
-    const id = nodes.length === 0 ? 1 : Math.max(...nodes.map((node) => node.id)) + 1;
+    const id = crypto.randomUUID();
     const date = new Date().getTime();
 
-    nodes.push({
+    const newNode: Node = {
         id,
         type,
         name,
         date,
-        children: [],
-    });
+        parentId,
+    };
+
+    nodes.push(newNode);
 
     storageSignal.value = [...nodes];
 };
 
-export const readNodes = (id: number | null = null): Node[] => {
+export const readNodes = (id: string | null = null): Node[] => {
     if (id !== null) {
         return storageSignal.value?.filter((node) => node.id === id);
     }
@@ -42,6 +44,6 @@ export const updateNode = ({ id, name }: UpdateDetails): boolean => {
     return true;
 };
 
-export const deleteNode = (id: number) => {
+export const deleteNode = (id: string) => {
     storageSignal.value = storageSignal.value.filter((node) => node.id !== id);
 };

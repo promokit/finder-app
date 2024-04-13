@@ -1,16 +1,16 @@
 import { NodeType } from './enums';
 
-// type Storage = {
-//     get(): Node[];
-//     set(data: Node[]): void;
-// };
+type Storage = {
+    get(): Node[];
+    set(data: Node[]): void;
+};
 
 export type Node = {
-    id: number;
+    id: string;
     type: NodeType;
     name: string;
     date: number;
-    children: Node[];
+    parentId: string;
 };
 
 export type ContentView = {

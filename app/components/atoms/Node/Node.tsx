@@ -1,28 +1,32 @@
-import { nodeSignal } from '~/signals/node';
+import { locationSignal, nodeSignal } from '~/signals';
+import { Node as TNode } from '~/types';
 import { NodeType } from '~/types/enums';
-import { getDate } from '~/utils/date';
+import { getDate } from '~/utils';
 import { Icon } from '..';
 
-type Props = {
-    id: number;
-    name: string;
-    date: number;
-    type: NodeType;
-};
-
-export const Node = ({ name, type, date, id }: Props) => {
+export const Node = ({ name, type, date, id }: Omit<TNode, 'parentId'>) => {
     const handleClick = () => {
-        nodeSignal.value = nodeSignal.value === id ? 0 : id;
+        nodeSignal.value = nodeSignal.value === id ? '' : id;
+    };
+
+    const handleDoubleClick = () => {
+        if (type === NodeType.Dir) {
+            locationSignal.value = id;
+        }
     };
 
     return (
-        <tr onClick={handleClick} className={nodeSignal.value === id ? 'selected' : 'regular'}>
+        <tr
+            onClick={handleClick}
+            onDoubleClick={handleDoubleClick}
+            className={nodeSignal.value === id && id !== '' ? 'selected' : 'regular'}
+        >
             <td>
                 <Icon name={type === NodeType.Dir ? 'folder' : 'file'} />
             </td>
             <td>{name}</td>
             <td>{type === NodeType.Dir ? 'Folder' : 'File'}</td>
-            <td>{getDate(date)}</td>
+            <td>{date !== 0 && getDate(date)}</td>
         </tr>
     );
 };

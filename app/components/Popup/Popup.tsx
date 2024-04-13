@@ -30,7 +30,7 @@ export const Popup = ({ title, onClose, onSubmit }: Props) => {
 
     useLayoutEffect(() => {
         const node: Node[] = readNodes(nodeSignal.value);
-        if (node.length > 0 && node[0]?.name) {
+        if (node?.length > 0 && node[0]?.name) {
             setNodeName(node[0].name);
         }
     }, [nodeSignal.value]);
