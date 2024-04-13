@@ -30,7 +30,7 @@ export const ButtonCalendar = () => {
             title="Date Filter"
             icon="calendar"
             extraClass={contentViewSignal.value.filter.fromDate ? 'active' : ''}
-            action={onClick}
+            handleClick={onClick}
         />
     ));
 

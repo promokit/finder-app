@@ -1,5 +1,5 @@
-import { nodeSignal } from '~/signals/node';
-import { deleteNode } from '~/utils/crud';
+import { nodeSignal } from '~/signals';
+import { deleteNode } from '~/utils';
 import { ButtonRegular } from '..';
 
 export const ButtonDelete = () =>
@@ -8,6 +8,6 @@ export const ButtonDelete = () =>
             title="Delete"
             icon="plus"
             extraClass="delete"
-            action={() => deleteNode(nodeSignal.value)}
+            handleClick={() => deleteNode(nodeSignal.value)}
         />
     );

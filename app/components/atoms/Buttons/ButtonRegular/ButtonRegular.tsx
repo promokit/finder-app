@@ -3,15 +3,15 @@ import { Icon } from '../..';
 import './ButtonRegular.css';
 
 type Props = {
-    action: () => void;
+    handleClick: () => void;
     title: string;
     icon: string;
     extraClass?: string;
 };
 
-export const ButtonRegular = ({ title, icon, action, extraClass = '' }: Props) => {
+export const ButtonRegular = ({ title, icon, handleClick, extraClass = '' }: Props) => {
     return (
-        <button className={`toolbar-button ${extraClass}`} onClick={action} title={title}>
+        <button className={`toolbar-button ${extraClass}`} onClick={handleClick} title={title}>
             <Icon name={icon} />
         </button>
     );

@@ -1,25 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Popup } from '~/components';
 import { PopupState } from '~/components/Toolbar/Toolbar.types';
-import { nodeSignal } from '~/signals/node';
-import { NodeType } from '~/types/enums';
-import { readNodes } from '~/utils/crud';
+import { nodeSignal } from '~/signals';
+import { updateNode } from '~/utils';
 import { ButtonRegular } from '..';
 
 export const ButtonRename = () => {
-    const [nodeType, setNodeType] = useState<NodeType>(NodeType.File);
     const [popupState, setPopupState] = useState<PopupState>({
         show: false,
-        type: nodeType,
     });
 
-    useEffect(() => {
-        const node = readNodes(nodeSignal.value);
-        if (node?.length > 0 && node[0]?.type) {
-            setNodeType(node[0].type);
-        }
-    }, [nodeSignal.value]);
+    const handleSubmit = (name: string) => {
+        updateNode({ id: nodeSignal.value, name });
+    };
 
     return (
         nodeSignal.value !== 0 && (
@@ -28,15 +22,17 @@ export const ButtonRename = () => {
                     title="Rename"
                     icon="edit"
                     extraClass="rename"
-                    action={() =>
+                    handleClick={() =>
                         setPopupState({
                             show: true,
-                            type: nodeType,
                         })
                     }
                 />
                 {popupState.show &&
-                    createPortal(<Popup onClose={setPopupState} type={popupState.type} />, document.body)}
+                    createPortal(
+                        <Popup title={`Rename`} onClose={setPopupState} onSubmit={handleSubmit} />,
+                        document.body
+                    )}
             </>
         )
     );

@@ -17,7 +17,7 @@ export const ButtonShowFolders = () => {
             title="Show Folders Only"
             icon="folders-only"
             extraClass={contentViewSignal.value.filter.foldersOnly ? 'active' : ''}
-            action={handleAction}
+            handleClick={handleAction}
         />
     );
 };
