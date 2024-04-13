@@ -7,5 +7,8 @@ import type { Node } from '~/types';
 export const storageSignal: Signal<Node[]> = signal(store(STORAGE_KEY));
 
 effect(() => {
-    store(STORAGE_KEY, storageSignal.value);
+    store(
+        STORAGE_KEY,
+        storageSignal.value?.sort((a, b) => a.id - b.id)
+    );
 });

@@ -1,6 +1,6 @@
 .toolbar {
     display: flex;
-    gap: 3px;
+    gap: 0.5rem;
     padding: 1rem;
     background-color: #f1f1f1;
     align-items: center;
@@ -12,5 +12,12 @@
         flex-direction: row;
         justify-content: flex-end;
         flex-grow: 1;
+        gap: 0.5rem;
+        & > .separator:first-of-type {
+            display: none;
+        }
+        .toolbar-button + .separator {
+            display: block;
+        }
     }
 }

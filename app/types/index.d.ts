@@ -1,9 +1,9 @@
 import { NodeType } from './enums';
 
-type Storage = {
-    get(): Node[];
-    set(data: Node[]): void;
-};
+// type Storage = {
+//     get(): Node[];
+//     set(data: Node[]): void;
+// };
 
 export type Node = {
     id: number;
@@ -14,5 +14,9 @@ export type Node = {
 };
 
 export type ContentView = {
-    foldersOnly: boolean;
+    filter: {
+        foldersOnly: boolean;
+        fromDate: number;
+    };
+    parent: string | null;
 };

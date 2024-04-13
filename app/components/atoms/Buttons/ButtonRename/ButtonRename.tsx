@@ -16,7 +16,7 @@ export const ButtonRename = () => {
 
     useEffect(() => {
         const node = readNodes(nodeSignal.value);
-        if (node.length > 0 && node[0]?.type) {
+        if (node?.length > 0 && node[0]?.type) {
             setNodeType(node[0].type);
         }
     }, [nodeSignal.value]);
@@ -27,6 +27,7 @@ export const ButtonRename = () => {
                 <ButtonRegular
                     title="Rename"
                     icon="edit"
+                    extraClass="rename"
                     action={() =>
                         setPopupState({
                             show: true,

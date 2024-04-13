@@ -10,11 +10,6 @@ html {
     font-style: normal;
 }
 
-body {
-    background-color: Canvas;
-    color-scheme: light dark;
-}
-
 *,
 *::before,
 *::after {
@@ -24,7 +19,8 @@ body {
 .window {
     margin: 30px auto 0;
     max-width: 1200px;
-    resize: horizontal;
+    resize: both;
+    overflow: hidden;
 }
 
 .window-wrapper {
@@ -34,20 +30,21 @@ body {
 }
 
 .window-view {
-    container-name: window;
-    container-type: inline-size;
     width: 90%;
     border: 1px solid #ccc;
     box-shadow: 5px 5px 16px 0px rgba(66, 68, 90, 0.3);
-    border-radius: 8px;
+    border-radius: 10px;
     background: #fff;
-    overflow: hidden;
 }
 
-@container window (max-width: 700px) {
+@media (max-width: 700px) {
     .window-wrapper {
         grid-template-columns: 0px 1fr;
     }
+}
+
+.react-datepicker__portal {
+    backdrop-filter: blur(4px);
 }
 
 body:has(.popup):after {
@@ -56,7 +53,7 @@ body:has(.popup):after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     content: '';
     backdrop-filter: blur(3px);
 }

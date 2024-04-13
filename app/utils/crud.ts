@@ -6,7 +6,7 @@ type CreateDetails = Pick<Node, 'type' | 'name'>;
 type UpdateDetails = Pick<Node, 'id' | 'name'>;
 
 export const createNode = ({ type, name }: CreateDetails) => {
-    const nodes = storageSignal.value;
+    const nodes = storageSignal.value || [];
 
     const id = nodes.length === 0 ? 1 : Math.max(...nodes.map((node) => node.id)) + 1;
     const date = new Date().getTime();
@@ -24,7 +24,7 @@ export const createNode = ({ type, name }: CreateDetails) => {
 
 export const readNodes = (id: number | null = null): Node[] => {
     if (id !== null) {
-        return storageSignal.value.filter((node) => node.id === id);
+        return storageSignal.value?.filter((node) => node.id === id);
     }
     return storageSignal.value;
 };

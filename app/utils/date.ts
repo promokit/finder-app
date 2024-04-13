@@ -5,5 +5,8 @@ export const getDate = (datetime: number): string => {
         year: 'numeric',
         month: 'numeric',
         day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
     });
 };

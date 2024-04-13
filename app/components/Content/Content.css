@@ -15,10 +15,6 @@
         td:nth-child(3) {
             width: 15%;
         }
-        th:nth-child(4),
-        td:nth-child(4) {
-            width: 25%;
-        }
     }
     thead {
         background: #eee;
@@ -42,10 +38,14 @@
             &:hover {
                 filter: brightness(0.86);
             }
+            &.selected:hover {
+                filter: brightness(1.1);
+            }
         }
     }
     td,
     th {
+        text-wrap: nowrap;
         padding: 5px 10px;
         box-sizing: border-box;
         &:not(:last-child) {

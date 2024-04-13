@@ -5,8 +5,16 @@
     display: flex;
     align-items: center;
     border-radius: 4px;
-    &:hover {
+    background: none;
+    svg {
+        opacity: 0.5;
+    }
+    &:hover,
+    &.active {
         background-color: rgba(0, 0, 0, 0.05);
+        svg {
+            opacity: 100%;
+        }
     }
     &.delete svg {
         transform: rotate(45deg);

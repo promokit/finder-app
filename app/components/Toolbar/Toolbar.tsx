@@ -2,8 +2,14 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { NodeType } from '~/types/enums';
 import { Popup } from '..';
-import { ButtonDelete, ButtonRegular, ButtonRename } from '../atoms';
-import { ButtonShowFolders } from '../atoms/Buttons/ButtonShowFolders/ButtonShowFolders';
+import {
+    ButtonCalendar,
+    ButtonDelete,
+    ButtonRegular,
+    ButtonRename,
+    ButtonShowFolders,
+    Separator,
+} from '../atoms';
 import type { PopupState } from './Toolbar.types';
 
 import './Toolbar.css';
@@ -16,11 +22,14 @@ export const Toolbar = () => {
 
     return (
         <aside className="toolbar">
-            <div className="title">Root</div>
+            <div className="title">/</div>
             <div className="actions">
                 <ButtonDelete />
                 <ButtonRename />
+                <Separator />
                 <ButtonShowFolders />
+                <ButtonCalendar />
+                <Separator />
                 <ButtonRegular
                     title="Create File"
                     icon="addfile"
