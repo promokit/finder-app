@@ -6,7 +6,7 @@ import { Icon } from '..';
 
 export const Node = ({ name, type, date, id }: Omit<TNode, 'parentId'>) => {
     const handleClick = () => {
-        nodeSignal.value = nodeSignal.value === id ? '' : id;
+        nodeSignal.value = id;
     };
 
     const handleDoubleClick = () => {

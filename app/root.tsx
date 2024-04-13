@@ -1,6 +1,8 @@
 import '@preact/signals-react/auto';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
+import './styles/general.css';
+
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
@@ -24,5 +26,9 @@ export default function App() {
 }
 
 export function HydrateFallback() {
-    return <p>Loading...</p>;
+    return (
+        <div className="spinner">
+            <img src="/spinner.svg" width="60" height="38" alt="Loading..." />
+        </div>
+    );
 }

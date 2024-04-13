@@ -1,13 +1,13 @@
 import { contentViewSignal, locationSignal } from '~/signals';
 import type { Node } from '~/types';
-import { NodeType } from '~/types/enums';
+import { filterByDate, filterByLocation, filterByType } from '.';
 
-export const applyFilters = (nodes: Node[]): Node[] => {
+export const applyFilters = (nodes: Node[] = []): Node[] => {
     const { fromDate, foldersOnly } = contentViewSignal.value?.filter;
 
     let nodesToDisplay: Node[] = nodes;
 
-    nodesToDisplay = filterByLocation(nodesToDisplay);
+    nodesToDisplay = filterByLocation(nodesToDisplay, locationSignal.value);
 
     if (fromDate > 0) {
         nodesToDisplay = filterByDate(nodesToDisplay, fromDate);
@@ -18,16 +18,4 @@ export const applyFilters = (nodes: Node[]): Node[] => {
     }
 
     return nodesToDisplay;
-};
-
-const filterByLocation = (nodes: Node[]): Node[] => {
-    return nodes.filter(({ parentId }) => parentId == locationSignal.value);
-};
-
-const filterByDate = (nodes: Node[], fromDate: number): Node[] => {
-    return nodes.filter(({ date }) => date >= fromDate);
-};
-
-const filterByType = (nodes: Node[]): Node[] => {
-    return nodes.filter(({ type }) => type === NodeType.Dir);
 };

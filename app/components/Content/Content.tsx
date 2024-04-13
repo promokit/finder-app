@@ -1,8 +1,8 @@
 import { locationSignal, storageSignal } from '~/signals';
+import { NodeType } from '~/types/enums';
 import { applyFilters } from '~/utils';
 import { ContentHeading, Node } from '../atoms';
 
-import { NodeType } from '~/types/enums';
 import './Content.css';
 
 export const Content = () => {
