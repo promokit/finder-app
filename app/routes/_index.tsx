@@ -13,10 +13,9 @@ export default function Index() {
         <div className="window window-view">
             <div className="window-wrapper">
                 <Sidebar />
-                <main>
-                    <Toolbar />
-                    <Content />
-                </main>
+
+                <Toolbar />
+                <Content />
             </div>
         </div>
     );

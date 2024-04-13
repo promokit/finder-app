@@ -27,6 +27,9 @@ html {
     display: grid;
     grid-template-columns: 200px 1fr;
     height: 100%;
+    grid-template-areas:
+        'sidebar toolbar'
+        'sidebar main';
 }
 
 .window-view {

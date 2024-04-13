@@ -8,7 +8,7 @@ export const Content = () => {
     const nodesToDisplay = applyFilters(storageSignal.value);
 
     return (
-        <div className="content">
+        <main className="content">
             <table>
                 <ContentHeading />
                 <tbody>
@@ -17,6 +17,6 @@ export const Content = () => {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </main>
     );
 };

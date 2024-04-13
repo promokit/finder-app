@@ -51,7 +51,7 @@ export const Popup = ({ title, onClose, onSubmit }: Props) => {
                         placeholder={'Name'}
                     />
                     <button className="button" type="submit">
-                        Create
+                        Save
                     </button>
                 </form>
             </div>
