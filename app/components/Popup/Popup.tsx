@@ -31,6 +31,9 @@ export const Popup = ({ title, purpose, onClose, onSubmit }: Props) => {
     };
 
     useLayoutEffect(() => {
+        if (purpose !== PopupPurpose.Rename) {
+            return;
+        }
         const node: Node[] = readNodes(nodeSignal.value);
         if (node?.length > 0 && node[0]?.name) {
             setNodeName(node[0].name);
@@ -48,7 +51,7 @@ export const Popup = ({ title, purpose, onClose, onSubmit }: Props) => {
                     <input
                         type="text"
                         name="nodename"
-                        value={purpose === PopupPurpose.Rename ? nodeName : ''}
+                        value={nodeName}
                         onChange={handleChange}
                         placeholder={'Name'}
                     />
