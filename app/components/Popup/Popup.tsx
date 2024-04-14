@@ -54,6 +54,7 @@ export const Popup = ({ title, purpose, onClose, onSubmit }: Props) => {
                         value={nodeName}
                         onChange={handleChange}
                         placeholder={'Name'}
+                        autoFocus
                     />
                     <button className="button" type="submit">
                         {purpose === PopupPurpose.Rename ? 'Rename' : 'Create'}
