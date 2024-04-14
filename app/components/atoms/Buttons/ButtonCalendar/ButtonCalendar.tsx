@@ -25,7 +25,7 @@ export const ButtonCalendar = () => {
         }
     };
 
-    const CustomInput = forwardRef(({ onClick }: RefProps, ref: LegacyRef<HTMLButtonElement>) => (
+    const CustomInput = forwardRef(({ onClick }: RefProps, _: LegacyRef<HTMLButtonElement>) => (
         <ButtonRegular
             title="Date Filter"
             icon="calendar"
@@ -39,8 +39,6 @@ export const ButtonCalendar = () => {
             startDate={startDate}
             onChange={(date) => handleChange(date)}
             customInput={<CustomInput onClick={() => {}} />}
-            showTimeSelect
-            timeIntervals={5}
             withPortal
         />
     );

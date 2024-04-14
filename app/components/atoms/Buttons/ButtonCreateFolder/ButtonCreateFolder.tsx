@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Popup } from '~/components';
 import { PopupState } from '~/components/Toolbar/Toolbar.types';
-import { NodeType } from '~/types/enums';
+import { NodeType, PopupPurpose } from '~/types/enums';
 import { createNode } from '~/utils';
 import { ButtonRegular } from '..';
 
@@ -31,7 +31,12 @@ export const ButtonCreateFolder = () => {
             />
             {popupState.show &&
                 createPortal(
-                    <Popup title={'Create Folder'} onClose={setPopupState} onSubmit={handleSubmit} />,
+                    <Popup
+                        title={'Create Folder'}
+                        purpose={PopupPurpose.Create}
+                        onClose={setPopupState}
+                        onSubmit={handleSubmit}
+                    />,
                     document.body
                 )}
         </>

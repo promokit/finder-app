@@ -3,7 +3,7 @@ import type { Node } from '~/types';
 import { filterByDate, filterByLocation, filterByType } from '.';
 
 export const applyFilters = (nodes: Node[] = []): Node[] => {
-    const { fromDate, foldersOnly } = contentViewSignal.value?.filter;
+    const { fromDate, foldersOnly } = contentViewSignal.value.filter;
 
     let nodesToDisplay: Node[] = nodes;
 

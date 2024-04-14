@@ -1,7 +1,7 @@
+import { ContentHeading, Node } from '~/components';
 import { locationSignal, storageSignal } from '~/signals';
 import { NodeType } from '~/types/enums';
 import { applyFilters, getParentId } from '~/utils';
-import { ContentHeading, Node } from '../atoms';
 
 import './Content.css';
 

@@ -6,7 +6,7 @@ import {
     ButtonRename,
     ButtonShowFolders,
     Separator,
-} from '../atoms';
+} from '~/components';
 
 export const Tools = () => (
     <div className="actions">

@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Popup } from '~/components';
 import { PopupState } from '~/components/Toolbar/Toolbar.types';
 import { nodeSignal } from '~/signals';
+import { PopupPurpose } from '~/types/enums';
 import { updateNode } from '~/utils';
 import { ButtonRegular } from '..';
 
@@ -30,7 +31,12 @@ export const ButtonRename = () => {
                 />
                 {popupState.show &&
                     createPortal(
-                        <Popup title={`Rename`} onClose={setPopupState} onSubmit={handleSubmit} />,
+                        <Popup
+                            title={`Rename`}
+                            purpose={PopupPurpose.Rename}
+                            onClose={setPopupState}
+                            onSubmit={handleSubmit}
+                        />,
                         document.body
                     )}
             </>

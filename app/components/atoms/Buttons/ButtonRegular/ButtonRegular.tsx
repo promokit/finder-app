@@ -9,10 +9,8 @@ type Props = {
     extraClass?: string;
 };
 
-export const ButtonRegular = ({ title, icon, handleClick, extraClass = '' }: Props) => {
-    return (
-        <button className={`toolbar-button ${extraClass}`} onClick={handleClick} title={title}>
-            <Icon name={icon} />
-        </button>
-    );
-};
+export const ButtonRegular = ({ title, icon, handleClick, extraClass = '' }: Props) => (
+    <button className={`toolbar-button ${extraClass}`} onClick={handleClick} title={title}>
+        <Icon name={icon} />
+    </button>
+);

@@ -1,19 +1,21 @@
 import { FormEvent, useLayoutEffect, useState } from 'react';
-import type { PopupState } from '../Toolbar/Toolbar.types';
-import { ButtonRegular } from '../atoms';
-
+import { ButtonRegular } from '~/components';
 import { nodeSignal } from '~/signals';
 import { Node } from '~/types';
+import { PopupPurpose } from '~/types/enums';
 import { readNodes } from '~/utils';
+import type { PopupState } from '../Toolbar/Toolbar.types';
+
 import './Popup.css';
 
 type Props = {
     title: string;
+    purpose: PopupPurpose;
     onClose: ({ show }: PopupState) => void;
     onSubmit: (name: string) => void;
 };
 
-export const Popup = ({ title, onClose, onSubmit }: Props) => {
+export const Popup = ({ title, purpose, onClose, onSubmit }: Props) => {
     const [nodeName, setNodeName] = useState('');
 
     const hidePopup = () => onClose({ show: false });
@@ -46,12 +48,12 @@ export const Popup = ({ title, onClose, onSubmit }: Props) => {
                     <input
                         type="text"
                         name="nodename"
-                        value={nodeName}
+                        value={purpose === PopupPurpose.Rename ? nodeName : ''}
                         onChange={handleChange}
                         placeholder={'Name'}
                     />
                     <button className="button" type="submit">
-                        Save
+                        {purpose === PopupPurpose.Rename ? 'Rename' : 'Create'}
                     </button>
                 </form>
             </div>
