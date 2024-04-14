@@ -36,7 +36,7 @@ export const Popup = ({ title, onClose, onSubmit }: Props) => {
     }, [nodeSignal.value]);
 
     return (
-        <div className="popup window-view">
+        <div className="popup window-style">
             <header>
                 <div>{title}</div>
                 <ButtonRegular title="Close Popup" icon="plus" handleClick={hidePopup} />

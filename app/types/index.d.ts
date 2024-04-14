@@ -20,3 +20,5 @@ export type ContentView = {
     };
     parent: string | null;
 };
+
+export type Path = Pick<Node, 'id' | 'name'>;

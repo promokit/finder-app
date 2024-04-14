@@ -3,13 +3,13 @@ import { getBreadcrumbs } from '~/utils';
 
 export const Breadcrumbs = () => {
     const path = getBreadcrumbs(locationSignal.value);
-    console.log(path);
 
     return (
         <div className="breadcrumbs">
-            .
-            {path.reverse().map((p) => (
-                <span key={p}>/{p}</span>
+            {path.map(({ id, name }) => (
+                <span key={id} onClick={() => (locationSignal.value = id)}>
+                    {name}
+                </span>
             ))}
         </div>
     );

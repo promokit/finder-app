@@ -1,7 +1,8 @@
+import { Path } from '~/types';
 import { getNodeNameById, getParentId } from '.';
 
-export const getBreadcrumbs = (nodeId: string, breadcrumbs: string[] = []) => {
-    breadcrumbs.push(getNodeNameById(nodeId));
+export const getBreadcrumbs = (nodeId: string, breadcrumbs: Path[] = []) => {
+    breadcrumbs.unshift({ id: nodeId, name: getNodeNameById(nodeId) });
 
     const parentId = getParentId(nodeId);
 

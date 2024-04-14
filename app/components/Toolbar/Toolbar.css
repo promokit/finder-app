@@ -10,6 +10,17 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        &:before {
+            content: '.';
+        }
+        span {
+            margin-left: 0.1rem;
+            cursor: pointer;
+        }
+        span:before {
+            content: '/';
+            margin-right: 0.1rem;
+        }
     }
     .actions {
         display: flex;
