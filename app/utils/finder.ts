@@ -13,10 +13,10 @@ export const filterByType = (nodes: Node[]): Node[] => {
     return nodes?.filter(({ type }) => type === NodeType.Dir);
 };
 
-export const getParentId = (storage: Node[], nodeId: string): string => {
-    return storage?.find(({ id }) => id == nodeId)?.parentId || '';
+export const getParentId = (nodes: Node[], nodeId: string): string => {
+    return nodes?.find(({ id }) => id == nodeId)?.parentId || '';
 };
 
-export const getNodeById = (storage: Node[], nodeId: string): Node | undefined => {
-    return storage?.find(({ id }) => id == nodeId);
+export const getNodeById = (nodes: Node[], nodeId: string): Node | undefined => {
+    return nodes?.find(({ id }) => id == nodeId);
 };

@@ -6,10 +6,8 @@ type Props = {
     name: string;
 };
 
-export const Icon = ({ name }: Props) => {
-    return (
-        <svg className="svgic" role="img" aria-label={`${name} image`}>
-            <use href={`${Icons}#${name}`}></use>
-        </svg>
-    );
-};
+export const Icon = ({ name }: Props) => (
+    <svg className="svgic" role="img" aria-label={`${name} image`}>
+        <use href={`${Icons}#${name}`}></use>
+    </svg>
+);

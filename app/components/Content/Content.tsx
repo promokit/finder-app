@@ -1,9 +1,9 @@
+import { KeyboardEvent, useEffect, useRef } from 'react';
 import { ContentHeading, Node } from '~/components';
 import { locationSignal, nodeSignal, storageSignal } from '~/signals';
 import { NodeType } from '~/types/enums';
 import { applyFilters, getParentId } from '~/utils';
 
-import { KeyboardEvent, useEffect, useRef } from 'react';
 import './Content.css';
 
 export const Content = () => {

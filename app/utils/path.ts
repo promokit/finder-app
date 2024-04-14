@@ -9,10 +9,12 @@ export const getBreadcrumbs = (nodeId: string, breadcrumbs: Path[] = []) => {
         return breadcrumbs;
     }
 
-    breadcrumbs.unshift({ id: node.id, name: node.name });
+    const { id, name, parentId } = node;
 
-    if (node.parentId !== '') {
-        getBreadcrumbs(node.parentId, breadcrumbs);
+    breadcrumbs.unshift({ id, name });
+
+    if (parentId !== '') {
+        getBreadcrumbs(parentId, breadcrumbs);
     }
 
     return breadcrumbs;

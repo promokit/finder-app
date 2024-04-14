@@ -1,5 +1,3 @@
 import './Separator.css';
 
-export const Separator = () => {
-    return <div className="separator"></div>;
-};
+export const Separator = () => <div className="separator"></div>;
