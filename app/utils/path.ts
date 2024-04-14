@@ -1,13 +1,18 @@
+import { storageSignal } from '~/signals';
 import { Path } from '~/types';
-import { getNodeNameById, getParentId } from '.';
+import { getNodeById } from '.';
 
 export const getBreadcrumbs = (nodeId: string, breadcrumbs: Path[] = []) => {
-    breadcrumbs.unshift({ id: nodeId, name: getNodeNameById(nodeId) });
+    const node = getNodeById(storageSignal.value, nodeId);
 
-    const parentId = getParentId(nodeId);
+    if (!node) {
+        return breadcrumbs;
+    }
 
-    if (parentId !== '') {
-        getBreadcrumbs(parentId, breadcrumbs);
+    breadcrumbs.unshift({ id: node.id, name: node.name });
+
+    if (node.parentId !== '') {
+        getBreadcrumbs(node.parentId, breadcrumbs);
     }
 
     return breadcrumbs;

@@ -15,7 +15,7 @@ export const Content = () => {
                 <tbody>
                     {locationSignal.value !== '' && (
                         <Node
-                            id={getParentId(locationSignal.value)}
+                            id={getParentId(storageSignal.value, locationSignal.value)}
                             name={'..'}
                             type={NodeType.Dir}
                             date={0}
